@@ -1,0 +1,77 @@
+$color-black:#252525;
+$color-black33:#ffffff33;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 微軟正黑體;
+}
+
+body{
+    background-image: url(./img/bg.png);
+    background-size: 400px;
+}
+
+nav{
+    display: grid;
+    grid-template-columns: 20% 50% 15% 15%;
+    padding: 5px 30px;
+    align-items: baseline;
+    position: fixed;
+    width: 100vw;
+    background-color: #ffffff33;
+    border: 1px solid $color-black33;
+    z-index: 999;
+    a{
+        text-decoration: none;
+        color: $color-black;
+    }
+    #logo{
+        color: $color-black;
+        font-size: 35px;
+    }
+}
+#banner{
+    img{
+        height: 100vh;
+        object-fit: cover;
+    }
+}
+
+@mixin section-box {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    img{
+        width: 100%;
+    }    
+}
+
+#about{
+    @include section-box();
+}
+
+#product{
+    @include section-box();
+    *:nth-child(1){
+        grid-area: pic;
+    }
+    *:nth-child(2){
+        grid-area: text;
+    }
+    grid-template-areas: "text pic";
+}
+
+#brand{
+    width: 45%;
+    margin: 0 auto;
+    img{
+        margin: 0 20px;
+    }
+}
+
+footer{
+    color: $color-black;
+    text-align: center;
+    margin: 50px 0;
+}
